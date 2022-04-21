@@ -6,6 +6,7 @@ import {
   RELEASE_NAME,
   PROJECT,
   CREATE,
+  RELEASE,
   TICKETS,
   DRY_RUN
 } from './env'
@@ -20,6 +21,7 @@ async function run(): Promise<void> {
       core.info(`subdomain ${SUBDOMAIN}`)
       core.info(`release ${RELEASE_NAME}`)
       core.info(`create ${CREATE}`)
+      core.info(`release ${RELEASE}`)
       core.info(`tickets ${TICKETS}`)
       return
     }
@@ -30,6 +32,7 @@ async function run(): Promise<void> {
       core.info(`subdomain ${SUBDOMAIN}`)
       core.info(`release ${RELEASE_NAME}`)
       core.info(`create ${CREATE}`)
+      core.info(`release ${RELEASE}`)
       core.info(`tickets ${TICKETS}`)
       const project = await Project.create(EMAIL, API_TOKEN, PROJECT, SUBDOMAIN)
       core.info(`Project loaded ${project.project?.id}`)
@@ -56,7 +59,7 @@ async function run(): Promise<void> {
         const versionToCreate: Version = {
           name: RELEASE_NAME,
           archived: false,
-          released: true,
+          released: RELEASE,
           releaseDate: new Date().toISOString(),
           projectId: Number(project.project?.id)
         }
@@ -68,7 +71,7 @@ async function run(): Promise<void> {
       const versionToUpdate: Version = {
         ...version,
         self: undefined,
-        released: true,
+        released: RELEASE,
         releaseDate: new Date().toISOString(),
         userReleaseDate: undefined
       }
