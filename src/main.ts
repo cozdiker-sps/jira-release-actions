@@ -16,8 +16,9 @@ import {Version} from './models'
 async function run(): Promise<void> {
   try {
     if(!!RELEASE){
-      RELEASE = true
+      RELEASE = false
     }
+    RELEASE = false
     if (DRY_RUN === 'ci') {
       core.info(`email ${EMAIL}`)
       core.info(`project ${PROJECT}`)
