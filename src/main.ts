@@ -56,6 +56,11 @@ async function run(): Promise<void> {
 
     let version = project.getVersion(RELEASE_NAME)
 
+
+      core.info(`release flag ${RELEASE}`)
+      core.info(`version of our release ${version}`)
+    
+    
     if (version === undefined) {
       core.debug(`Version ${RELEASE_NAME} not found`)
       if (CREATE === 'true') {
