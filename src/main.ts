@@ -81,7 +81,6 @@ async function run(): Promise<void> {
         ...version,
         self: undefined,
         released: false,
-        releaseDate: new Date().toISOString(),
         userReleaseDate: undefined
       }
       version = await project.updateVersion(versionToUpdate)
