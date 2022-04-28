@@ -18,7 +18,7 @@ async function run(): Promise<void> {
     if(!!RELEASE){
       RELEASE = false
     }
-    RELEASE = false
+    RELEASE = 'false'
     if (DRY_RUN === 'ci') {
       core.info(`email ${EMAIL}`)
       core.info(`project ${PROJECT}`)
